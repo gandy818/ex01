@@ -34,7 +34,7 @@ public class ReturnController {
 	public String methodc() {
 		log.info("c method");
 
-		//메소드에 @ResponseBodt라는 어노가 없으면 hello world.jsp를 찾음
+		//메소드에 @ResponseBody라는 어노가 없으면 hello world.jsp를 찾음
 		return "hello world";	
 	}
 	
@@ -75,9 +75,11 @@ public class ReturnController {
 		return "/ret/a";
 	}
 	
+	
 	@RequestMapping("/g")
 	public String methodg(Model model) {
 		log.info("g method");
+		
 		
 		String[] strs = new String[]{"seoul", "jeju", "korea"};
 		model.addAttribute("cities", strs);
@@ -97,11 +99,11 @@ public class ReturnController {
 		
 		Member m2 = new Member();
 		m2.setName("korea");
-		m2.setAge(45);
+		m2.setAge(46);
 		
 		//배열을 이용한 방법
 		Member[] members = new Member[] {m1,m2};
-//		model.addAttribute("memberList", members); 결과 같음
+//		model.addAttribute("memberList", members); 결과 같음 (이름을 설정 안해주면 자동으로 이름이 만들어져서)
 		model.addAttribute(members);
 		
 		
@@ -114,6 +116,7 @@ public class ReturnController {
 		
 		return "/ret/b";
 	}
+	
 	
 	//i?name=jeju
 	@RequestMapping("/i")

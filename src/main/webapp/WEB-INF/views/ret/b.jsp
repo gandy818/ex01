@@ -22,7 +22,7 @@
 </head>
 <body>
 	<div>
-		/g: <br>
+		<p> /g: </p>
 		<ol>
 			<c:forEach items="${cities }" var="city">
 				<li>${city }</li>
@@ -30,8 +30,10 @@
 		</ol>
 	</div>
 
+
+
 	<div>
-		<p>/h: </p>
+		<p> /h: </p>
 		<table class="table">
 			<tr>
 				<th>name</th>

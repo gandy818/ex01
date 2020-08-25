@@ -85,6 +85,7 @@ public class SampleController {
 //		binder.registerCustomEditor(java.util.Date.class, new CustomDateEditor(dateFormat, false));
 //	}
 	
+	
 	@GetMapping("/ex03")
 	public String ex03(TodoDTO todo) {
 		log.info("todo: " + todo);

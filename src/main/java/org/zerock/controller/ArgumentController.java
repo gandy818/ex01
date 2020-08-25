@@ -160,6 +160,9 @@ public class ArgumentController {
 	}
 	
 	
+	
+	//model 
+	
 	@RequestMapping("/o")
 	public void method15(Model model) {
 		log.info("o method");
@@ -171,7 +174,7 @@ public class ArgumentController {
 	}
 	
 	@RequestMapping("/p")
-	public void method16(@ModelAttribute("str")String str, Model model) {
+	public void method16(@ModelAttribute("str") String str, Model model) {
 		log.info("p method");
 		log.info(model);
 	
@@ -185,26 +188,38 @@ public class ArgumentController {
 	@RequestMapping("/q")
 	public void  method17(Model model) {
 		log.info("q method");
+		
+		//정석
 		model.addAttribute("str", "str-value");
 		
 		//이름을 정해주지 않으면 이름은 소문자type명. 여기서는 string
 		model.addAttribute("str-value2");
+		
+//		Member member = new Member();
+//		member.setName("sss");
+//		member.setAge(22);
+		
 		model.addAttribute(new Member());
+	
+		
 		//stringList
 		model.addAttribute(new String[] {"a", "b"});
 		
 		//memberList
 		List<Member> mlist = new ArrayList<Member>();
+		
 		mlist.add(new Member());
 		model.addAttribute(mlist);
+		
 		//비어있는 리스트는 등록x
-		model.addAttribute(new ArrayList<Member>());
+//		model.addAttribute(new ArrayList<Member>());
 		
 		log.info(model);
 	}
 	
+	
 	//기본타입이 아닌 경우
-	//@ModelAttribute가 생략 되있음 
+	//항상 @ModelAttribute가 생략 되있음 
 	@RequestMapping("/r")
 	public void method18(@ModelAttribute Member member, Model model) {
 		log.info("r method");
