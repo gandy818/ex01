@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.zerock.domain.Member;
 
 import lombok.extern.log4j.Log4j;
 
@@ -20,7 +21,6 @@ public class ArgumentController {
 		
 		//먼저 req가 잘 들어있는지 확인
 		log.info(req);
-		
 		log.info(req.getParameter("name"));
 	}
 	
@@ -60,15 +60,37 @@ public class ArgumentController {
 		log.info(name);
 		log.info(age);
 	
-		//형변환
+		//원래 형변환
 		int ageInt = Integer.valueOf(age);
 	}
 	
 	//자동으로 형변환
+	
 	@RequestMapping("/g")
 	public void method7(String name, int age) {
 		log.info("g method");
 		log.info(name);
 		log.info(age);
+	}
+	 
+	//member 객체도 만들고 name, age 값이 잘 들어감
+	@RequestMapping("/h")
+	public void method8(String name, int age) {
+		log.info("h method");
+		
+		Member member = new Member();
+		member.setName(name);
+		member.setAge(age);
+	
+		log.info(member);
+	
+	}
+	
+	//member 객체를 만들지 않아도 가능
+	@RequestMapping("/i")
+	public void method9(Member member) {
+		log.info("i method");
+		log.info(member);
+		
 	}
 }
