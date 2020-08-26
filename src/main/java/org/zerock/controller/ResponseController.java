@@ -25,14 +25,13 @@ public class ResponseController {
 	public String methoda() {
 		log.info("a method");
 		
-		
-		
 		return "/res/a";
 	}
 	
 	@RequestMapping("/b")
 	@ResponseBody
 	public String methodb() {
+		
 		log.info("b method");
 		
 		return "hello b method";
@@ -53,14 +52,15 @@ public class ResponseController {
 	public String methodd() {
 		log.info("d method");
 		
-		return "{\"name\":\"hohn\", \"age\":22}";
+		return "{\"name\":\"john\", \"age\":22}";
 				
 	}
 	
 	@RequestMapping("/e")
 	public ResponseEntity<String> methode() {
 		log.info("e method");
-		String body = "{\"name\":\"hohn\", \"age\":22}";
+		
+		String body = "{\"name\":\"john\", \"age\":22}";
 		
 		HttpHeaders header = new HttpHeaders();
 		header.add("Content-Type", "application/json;charset=UTF-8 ");
@@ -76,6 +76,7 @@ public class ResponseController {
 		log.info("f method");
 		Member member = null; //service.get(3);
 		
+		//번거롭
 		String body = "{\"name\":\""
 				+member.getName()
 				+", \"age\":"
@@ -170,23 +171,6 @@ public class ResponseController {
 		
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }

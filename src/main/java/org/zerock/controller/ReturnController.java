@@ -153,19 +153,20 @@ public class ReturnController {
 	
 	
 	//리다이렉트
-	// ret/l 로 요청을 보내면 주소가 ret/m으로 바뀜
+	//ret/l 로 요청을 보내면 주소가 ret/m으로 바뀜
+	
 	@RequestMapping("l")
 	public String methodl(Model model, RedirectAttributes rttr) {
 		log.info("l method");
 	
-		// RedirectAttributes가 없으면 리디렉션 된 m에서는 값이 안보임
+		// RedirectAttributes rttr이 없으면 리디렉션 된 m에서는 값이 안보임
 		model.addAttribute("myAttr1", "myValue1");
 		
-		//휘발 되기 때문에 같은 세션에서는 계속 사용할 수 x
+		//휘발되기 때문에 같은 세션에서는 계속 사용할 수 x
 		rttr.addFlashAttribute("myRedirectAttr1", "myRedirectValue1");
 		
 		//휘발 x 계속 남아있음. requestParam에 붙어서 넘어감. param el을 사용해줘야함.
-		rttr.addAttribute("myRedirectAttr2","myRedirectVlue2");
+		rttr.addAttribute("myRedirectAttr2","myRedirectValue2");
 		
 		
 //		옛날 코드
@@ -181,7 +182,7 @@ public class ReturnController {
 	public String methodm(Model model) {
 		log.info("m method");
 		
-		
+//		원래는 이곳에 값을 입력해줘야함
 //		model.addAttribute("myAttr1", "myValue1");
 		
 		return "/ret/m";

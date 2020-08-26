@@ -97,7 +97,6 @@ $(function() {
 <body>
 <h1>a.jsp</h1>
 <button id="btn-b">load b</button>
-<!-- h2#result -->
 <h2 id="result-b"></h2>
 
 <button id="btn-c">load c</button>
